@@ -4,14 +4,14 @@ var PORT = process.env.PORT || 3000;
 var todos = [{
 	id: 1,
 	description:"Meet mom for lunch",
-	completed: false,
+	completed: false
 },{
 	id: 2,
 	description: "go to store",
 	completed: false
 },{
 	id: 3,
-	description: "cookie monster",
+	description: "cookie monster!!!",
 	completed: true
 }];
 
@@ -26,6 +26,8 @@ app.get("/todos", function (req, res){
 
 //GET /todos/:id
 app.get("/todos/:id", function (req, res){
+
+	
 	var todoId = parseInt(req.params.id, 10);
 	var matchedTodo;
 
@@ -38,7 +40,7 @@ app.get("/todos/:id", function (req, res){
 	if (matchedTodo) {
 		res.json(matchedTodo);
 	}else{
-		res.status(404).send();
+		res.status(404).send("crap could not be found son!");
 	}
 
 });
